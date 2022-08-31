@@ -1,0 +1,75 @@
+[tool.poetry]
+name = "model-gallery"
+version = "0.1.0"
+description = ""
+authors = ["mryk814 <moriyuki.814@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10" # tensorflow入れる時はこの指定方法でないといかんかった。
+ipykernel = "^6.15.1"
+jaxlib = {url = "https://whls.blob.core.windows.net/unstable/cuda111/jaxlib-0.3.14+cuda11.cudnn82-cp39-none-win_amd64.whl"}
+jax = "^0.3.16"
+numpyro = "^0.10.0"
+optuna = "^3.0.0"
+cloudpickle = "^2.1.0"
+pytorch-lightning = "^1.7.3"
+gpytorch = "^1.8.1"
+pyro-ppl = "^1.8.1"
+lightgbm = "^3.3.2"
+seaborn = "^0.11.2"
+plotly = "^5.10.0"
+dash = "^2.6.1"
+pymc = "^4.1.7"
+jupyter-book = "^0.13.1"
+ghp-import = "^2.1.0"
+tensorflow-probability = "^0.17.0"
+tensorflow = "^2.9.1"
+torch = {url="https://download.pytorch.org/whl/cu113/torch-1.12.1%2Bcu113-cp39-cp39-win_amd64.whl"}
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.3.0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+mypy = "^0.950"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = 3.9
+# following setting is same as pysen
+# https://github.com/pfnet/pysen/blob/main/setup.cfg#L12
+check_untyped_defs = true
+disallow_any_decorated = false
+disallow_any_generics = false
+disallow_any_unimported = false
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = false
+disallow_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+strict_optional = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "model-gallery:main"
